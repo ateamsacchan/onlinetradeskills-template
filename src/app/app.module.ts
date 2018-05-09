@@ -1,36 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-import { ToastrModule } from 'ngx-toastr';
 
+// Environments
 import { environment } from '../environments/environment';
-
+// Modules
+import { ClientModule  } from './modules/client/client.module';
+// Components
 import { AppComponent } from './app.component';
-import { EmployeesComponent } from './employees/employees.component';
-import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
-import { EmployeeComponent } from './employees/employee/employee.component';
-import { EmployeeService } from './employees/shared/employee.service';
+// Services
+import { EmployeeService } from './common/services/employee.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    EmployeesComponent,
-    EmployeeListComponent,
-    EmployeeComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    ToastrModule.forRoot()
-  ],
-  providers: [ EmployeeService ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        ClientModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule
+    ],
+    providers: [ EmployeeService ],
+    bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { EmployeeService } from '../shared/employee.service';
-import { Employee } from '../shared/employee.model';
+import { EmployeeService } from '../../../../common/services/employee.service';
+import { Employee } from '../../../../common/models/employee.model';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
